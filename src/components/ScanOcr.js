@@ -19,7 +19,7 @@ const ScanOcr = () => {
   const onFileChange = (e) => {
     setfile(e.target.files[0]);
     if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]));      
+      setImage(URL.createObjectURL(e.target.files[0]));
       setError(null);
       setProgress(0);
     }
@@ -42,7 +42,7 @@ const ScanOcr = () => {
     })
 
       .catch((err) => {
-        setError('No se puede escanear la imagen');
+        setError("No se puede escanear la imagen");
         console.error(err);
       })
       .then(({ data: { text } }) => {
@@ -64,8 +64,6 @@ const ScanOcr = () => {
     }
     //esto es para ingresar registros -------------------------------------------------------------------------------------
     const registro = { codigo, estado_ingreso };
-    
-    
 
     const response = await fetch("/api/registros", {
       method: "POST",
@@ -122,12 +120,13 @@ const ScanOcr = () => {
               ...
             </option>
             <option value="Buena">Buena</option>
-            <option value="Mala">Mala</option>            
+            <option value="Mala">Mala</option>
             <option value="Incompleta">Inconpleta</option>
             <option value="Dañada">Dañada</option>
           </select>
 
-          <br></br><button className="right-5">Registrar</button>
+          <br></br>
+          <button className="right-5">Registrar</button>
         </form>
       </div>
 
