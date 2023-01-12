@@ -1,5 +1,4 @@
 {
-  "proxy": "https://scanback.adaptable.app/",
   "name": "scan_web",
   "version": "0.1.0",
   "private": true,

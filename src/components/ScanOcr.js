@@ -63,16 +63,20 @@ const ScanOcr = () => {
       return;
     }
     //esto es para ingresar registros -------------------------------------------------------------------------------------
-    const registro = { codigo, estado_ingreso };
+    const registro = { codigo, estado_ingreso }; /* 
+    const url = "https://scanback.adaptable.app"; */
 
-    const response = await fetch("/api/registros", {
-      method: "POST",
-      body: JSON.stringify(registro),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      /* url + */ "https://scanback.adaptable.app/api/registros",
+      {
+        method: "POST",
+        body: JSON.stringify(registro),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
 
     const json = await response.json();
 

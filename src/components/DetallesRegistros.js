@@ -6,6 +6,8 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 /* importan una librearia para el manejo de las fechas"; */
 const { format } = require("date-fns");
+/* 
+const url = "https://scanback.adaptable.app"; */
 
 const DetallesRegistros = ({ registro }) => {
   const { dispatch } = useRegisterContext();
@@ -21,12 +23,16 @@ const DetallesRegistros = ({ registro }) => {
 
     //el header es necesario porque se uso un json web token para la autenticacion
 
-    const response = await fetch("/api/registros/" + registro._id, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      /* url + */ "https://scanback.adaptable.app/api/registros/" +
+        registro._id,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const json = await response.json();
     //verifica que haya una respuesta para mandar el metodo DELETE
 

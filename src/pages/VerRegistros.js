@@ -16,6 +16,8 @@ const VerRegistros = () => {
   const [sort, setSort] = useState("createdAt");
   const [order, setOrder] = useState("desc");
   const [search, setSearch] = useState("");
+  /* 
+  const url = "https://scanback.adaptable.app"; */
 
   const hadelSelect = (e) => {
     setSort(e.target.value);
@@ -39,10 +41,12 @@ const VerRegistros = () => {
     const getRegistros = async () => {
       try {
         const response = await fetch(
-          `/api/registros/busqueda?search=${search}&sort=${sort},${order}`,
+          /* url + */
+          `https://scanback.adaptable.app/api/registros/busqueda?search=${search}&sort=${sort},${order}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
+              "Access-Control-Allow-Origin": "*",
             },
           }
         );
